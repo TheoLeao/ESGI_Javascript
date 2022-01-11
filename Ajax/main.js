@@ -32,7 +32,7 @@ function showContact(data) {
     target.innerHTML = data.map((contact) => `<p>Prénom: ${contact.firstName}</p><p>Phone: ${contact.phone}</p>`).join('');
 }
 function showFilms(data) {
-    target.innerHTML = `<ul class="movie-list">` + data.map((film) => `<li><img src="images/${film.cover}"><p><strong>X-Men: Days of Future Past</strong> - <em>${film.duration}</em></p></li>`).join('') + '</ul>';
+    target.innerHTML = `<ul class="movie-list"> ${data.map((film) => `<li><img src="images/${film.cover}"><p><strong>${film.title}</strong> - <em>${film.duration}</em></p></li>`).join('')} </ul>`;
 }
 runButton.addEventListener('click', async () => {
     let value = parseInt(document.querySelector('input[name="what"]:checked').value);
