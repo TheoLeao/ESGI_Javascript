@@ -6,7 +6,7 @@ class BDD {
     public function __construct (){
         //'mysql:host=127.0.0.1;dbname=chatbox;charset=UTF8;port:8080'
         $this->bdd = new PDO (
-            'mysql:host=localhost;dbname=chatbox;charset=UTF8;port:8080',
+            'mysql:host=db;dbname=chatbox;charset=UTF8;port:3306',
             'root',
             'password',
             [

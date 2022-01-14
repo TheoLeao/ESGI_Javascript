@@ -12,12 +12,14 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=chatbox
+    security_opt:
+      - seccomp:unconfined
   # Container pour le serveur web sous apache avec php7
   site:
-    build: ./php/
+    build: .
     restart: always
     ports :
-     - "81:80"
+     - "8000:80"
     volumes:
      - /Users/theoboudier/Desktop/htdocs/ESGI_Javascript/Chatbox:/var/www/html/
     links:

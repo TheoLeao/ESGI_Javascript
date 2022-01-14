@@ -9,14 +9,14 @@ include "message.class.php";
  * en fonction de cette action, le code diffère
  * Toutes les données retournées sont encodées en JSON de façon à pouvoir être interprétées et manipulées par le JS
  */
-if(array_key_exists("action", $_GET)){
+if (array_key_exists("action", $_GET)) {
     $action = $_GET["action"];
-    switch($action){
+    switch ($action) {
         case "getDiscussionName":
             /**
              * Récupère le nom d'une discussion en fonction de son ID
              */
-            if(array_key_exists("id", $_POST)){
+            if (array_key_exists("id", $_POST)) {
                 $id = trim($_POST["id"]);
                 $discussion = new Discussion();
                 $result = $discussion->getName($id);
@@ -28,8 +28,7 @@ if(array_key_exists("action", $_GET)){
              * Crée une nouvelle discussion
              * Passe le nom de la discussion en majuscule et s'il contient des espaces, les remplace par un "-"
              */
-            if(array_key_exists("id", $_POST)){
-                die('ya id mec');
+            if (array_key_exists("id", $_POST)) {
                 $id = trim($_POST["id"]);
                 $id = strtoupper(str_replace(" ", "-", $id));
                 $discussion = new Discussion();
@@ -42,15 +41,15 @@ if(array_key_exists("action", $_GET)){
              * Vérifie qu'une discussion existe
              * Si elle existe, retourne son id, sinon retourne false
              */
-            if(array_key_exists("id", $_POST)){
+            if (array_key_exists("id", $_POST)) {
                 $id = trim($_POST["id"]);
                 $id = strtoupper(str_replace(" ", "-", $id));
                 $discussion = new Discussion();
                 $result = $discussion->exists($id);
-                if($result){
+                if ($result) {
                     $result = $discussion->getId($id);
                     $result = $result["Id"];
-                } 
+                }
                 echo json_encode(["discussion" => $result]);
             }
             break;
@@ -58,7 +57,7 @@ if(array_key_exists("action", $_GET)){
             /**
              * Ajoute un message à une discussion
              */
-            if(array_key_exists("id", $_POST) && array_key_exists("msg", $_POST) && array_key_exists("pseudo", $_POST)){
+            if (array_key_exists("id", $_POST) && array_key_exists("msg", $_POST) && array_key_exists("pseudo", $_POST)) {
                 $id = trim($_POST["id"]);
                 $msg = trim($_POST["msg"]);
                 $pseudo = trim($_POST["pseudo"]);
@@ -72,7 +71,7 @@ if(array_key_exists("action", $_GET)){
              * Récupère tous les messages d'une discussion
              * Evolution possible : ne récupérer qu'un certain nombre de messages et créer un scroll infini dans l'interface
              */
-            if(array_key_exists("id", $_POST)){
+            if (array_key_exists("id", $_POST)) {
                 $id = trim($_POST["id"]);
                 $message = new Message();
                 $result = $message->get($id);
@@ -83,7 +82,7 @@ if(array_key_exists("action", $_GET)){
             /**
              * Récupère les derniers messages arrivés après l'ID d'un message renseigné
              */
-            if(array_key_exists("id", $_POST) && array_key_exists("lastId", $_POST)){
+            if (array_key_exists("id", $_POST) && array_key_exists("lastId", $_POST)) {
                 $id = trim($_POST["id"]);
                 $last = trim($_POST["lastId"]);
                 $message = new Message();
