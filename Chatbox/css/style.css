@@ -1,0 +1,156 @@
+body * {
+    transition: all 0.3s ease;
+  }
+  
+  body.home {
+    height: 100vh;
+  }
+  
+  body a {
+    color: #18A2B8;
+  }
+  
+  body .hide {
+    display: none !important;
+  }
+  
+  /*
+  * PAGE D'ACCUEIL ET FORMULAIRES
+  */
+  .home form.box {
+    text-align: center;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    padding: 35px 30px;
+    border-radius: 15px;
+    color: #18A2B8;
+  }
+  
+  .home form.box h3 {
+    margin-bottom: 30px;
+  }
+  
+  .home form.box input {
+    border: none;
+    border-bottom: 2px solid #18A2B8;
+    padding: 7px;
+    font-size: 1.2em;
+  }
+  
+  .home form.box input, .home form.box button {
+    margin-bottom: 15px;
+  }
+  
+  .home form.box a {
+    text-decoration: underline;
+    font-size: 0.8em;
+  }
+  
+  .home form.box a:hover {
+    color: #108597;
+  }
+  
+  /*
+  * PAGE CHATBOX
+  */
+  .chat {
+    height: 100vh;
+    overflow: hidden;
+    padding: 50px;
+  }
+  
+  .chat .content {
+    height: 100%;
+  }
+  
+  .chat .content section#messages {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    max-height: 100%;
+    overflow-y: scroll;
+  }
+  
+  .chat .content section#messages .bulle {
+    margin: 20px 10px;
+  }
+  
+  .chat .content section#messages .bulle.left {
+    align-items: flex-start;
+  }
+  
+  .chat .content section#messages .bulle.right {
+    align-items: flex-end;
+  }
+  
+  .chat .content section#messages .bulle.right .content {
+    color: white;
+    background: #18A2B8;
+  }
+  
+  .chat .content section#messages .bulle .content {
+    max-width: 60%;
+    background: #f0f0f0;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .chat .content section#messages .bulle small {
+    color: gray;
+  }
+  
+  .chat .content aside#saisie {
+    padding: 0 20px;
+  }
+  
+  .chat .content aside#saisie form {
+    position: relative;
+    margin-top: 10px;
+    padding-right: 10px;
+  }
+  
+  .chat .content aside#saisie form textarea {
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .chat .content aside#saisie form #submit {
+    background: #18A2B8;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    position: absolute;
+    right: -10px;
+    bottom: 85px;
+  }
+  
+  .chat .content aside#saisie form .btn {
+    margin-top: 30px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .chat {
+      padding: 0;
+    }
+    .chat .content section#messages {
+      height: 60%;
+    }
+    .chat .content aside#saisie {
+      height: 40%;
+      padding: 40px;
+      padding-right: 40px;
+    }
+    .chat .content aside#saisie form {
+      height: 80%;
+    }
+    .chat .content aside#saisie form #submit {
+      bottom: 55px;
+    }
+  }
+  

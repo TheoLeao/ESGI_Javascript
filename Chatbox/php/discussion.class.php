@@ -41,4 +41,5 @@ class Discussion {
         $result = $this->bdd->selectOne($requete, [$id]);
         return $result;
     }
+
 }
