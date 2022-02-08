@@ -72,6 +72,7 @@ chargeButton.addEventListener('click', () => {
     let result = chargeResult(coupable, formDatas);
     let isWin = result.name && result.weapon && result.room;
     //show result to user
+    document.body.insertAdjacentHTML('beforeend', `<p>Vous accusez <b>${formDatas.name}</b> d'avoir tué le Docteur Lenoir avec la/le ${formDatas.weapon} dans la/le ${formDatas.room}</p>`);
     document.body.insertAdjacentHTML('beforeend', `
     <table>
         <thead>
@@ -95,7 +96,7 @@ chargeButton.addEventListener('click', () => {
         </tbody>
     </table>
     `);
-    document.body.insertAdjacentHTML('beforeend', `${isWin ? '<b>Bravo !</b>' : '<b>Et c\'est raté !</b>'} C'est <b>${coupable.name}</b> qui a tué le docteur Lenoir avec la/le ${coupable.weapon} dans la/le ${coupable.room}`);
+    document.body.insertAdjacentHTML('beforeend', `<p>${isWin ? '<b>Bravo !</b>' : '<b>Et c\'est raté !</b>'} C'est <b>${coupable.name}</b> qui a tué le docteur Lenoir avec la/le ${coupable.weapon} dans la/le ${coupable.room}</p>`);
     //do not show the form anymore
     form.style.display = 'none';
 })
