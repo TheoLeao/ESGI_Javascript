@@ -1,4 +1,4 @@
-//Théo Boudier
+//Boudier Théo
 "use strict";
 
 /* 
@@ -71,6 +71,7 @@ chargeButton.addEventListener('click', () => {
     let formDatas = getFormDatas(datas);
     let result = chargeResult(coupable, formDatas);
     let isWin = result.name && result.weapon && result.room;
+    //show result to user
     document.body.insertAdjacentHTML('beforeend', `
     <table>
         <thead>
@@ -95,5 +96,6 @@ chargeButton.addEventListener('click', () => {
     </table>
     `);
     document.body.insertAdjacentHTML('beforeend', `${isWin ? '<b>Bravo !</b>' : '<b>Et c\'est raté !</b>'} C'est <b>${coupable.name}</b> qui a tué le docteur Lenoir avec la/le ${coupable.weapon} dans la/le ${coupable.room}`);
+    //do not show the form anymore
     form.style.display = 'none';
 })
